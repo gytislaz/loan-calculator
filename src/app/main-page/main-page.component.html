@@ -1,0 +1,13 @@
+<mat-card class="centered-card">
+  <mat-card-header>
+    <mat-card-title
+      >Fill the form to find out loan amount and interest rate</mat-card-title
+    >
+  </mat-card-header>
+  <mat-card-content>
+    <app-loan-form (submitForm)="onSubmitForm($event)"></app-loan-form>
+    <ng-container *ngIf="loanResult$ | async as loanResult" >
+      <p>{{loanResult.interestRate}}</p>
+    </ng-container>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,61 @@
+<form [formGroup]="loanForm" (ngSubmit)="onSubmit()">
+  <p>
+    <mat-form-field class="form-field" appearance="standard">
+      <mat-label>Monthly Income</mat-label>
+      <input type="number" matInput formControlName="monthlyIncome" />
+      <mat-error *ngIf="loanForm.controls.monthlyIncome.hasError('required')">
+        Monthly Income is required
+      </mat-error>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field class="form-field" appearance="standard">
+      <mat-label>Request Amount</mat-label>
+      <input type="number" matInput formControlName="requestedAmount" />
+      <mat-error *ngIf="loanForm.controls.requestedAmount.hasError('required')">
+        Request Amount is required
+      </mat-error>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field class="form-field" appearance="standard">
+      <mat-label>Loan Term (In months)</mat-label>
+      <input type="number" matInput formControlName="loanTerm" />
+      <mat-error *ngIf="loanForm.controls.loanTerm.hasError('required')">
+        Loan Term is required
+      </mat-error>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field class="form-field" appearance="standard">
+      <mat-label>Number of Children</mat-label>
+      <mat-select formControlName="children">
+        <mat-option [value]="ChildrenAmountType.None">None</mat-option>
+        <mat-option [value]="ChildrenAmountType.Single">Single</mat-option>
+        <mat-option [value]="ChildrenAmountType.Multiple">Multiple</mat-option>
+      </mat-select>
+      <mat-error *ngIf="loanForm.controls.children.hasError('required')">
+        Number of Children is required
+      </mat-error>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field class="form-field" appearance="standard">
+      <mat-label>Number of Co-Applicants</mat-label>
+      <mat-select formControlName="coapplicant">
+        <mat-option [value]="CoapplicantAmountType.None">None</mat-option>
+        <mat-option [value]="CoapplicantAmountType.Single_Borrower"
+          >Single Borrower</mat-option
+        >
+        <mat-option [value]="CoapplicantAmountType.Multiple_Borrowers"
+          >Multiple Borrowers</mat-option
+        >
+      </mat-select>
+      <mat-error *ngIf="loanForm.controls.coapplicant.hasError('required')">
+        Number of Co-Applicants is required
+      </mat-error>
+    </mat-form-field>
+  </p>
+
+  <button type="submit" mat-flat-button color="primary">Submit</button>
+</form>
