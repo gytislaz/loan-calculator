@@ -12,18 +12,18 @@ export interface CalculatedLoan {
 }
 
 export interface LoanError {
-  general?: General;
+  general?: GeneralError;
   fields?: Field[];
 }
 
-export interface General {
+export interface GeneralError {
   code?: string;
   message?: string;
 }
 
 export interface Field {
-  params?: string;
-  message?: string;
+  params: string;
+  message: string;
 }
 
 export enum ChildrenAmountType {

@@ -28,12 +28,13 @@ const reducer = createReducer(
     loaded: true,
     loading: false,
     loanResult: action.loanResult,
-    error: {},
+    error: undefined,
   })),
   on(fetchLoanFail, (state, action) => ({
     ...state,
     loaded: false,
     loading: false,
+    loanResult: undefined,
     error: action.error,
   }))
 );

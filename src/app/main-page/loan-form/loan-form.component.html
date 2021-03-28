@@ -6,6 +6,9 @@
       <mat-error *ngIf="loanForm.controls.monthlyIncome.hasError('required')">
         Monthly Income is required
       </mat-error>
+      <mat-error *ngIf="loanForm.controls.monthlyIncome.hasError('serverError')">
+        {{loanForm.controls.monthlyIncome.errors?.serverError}}
+      </mat-error>
     </mat-form-field>
   </p>
   <p>
@@ -15,6 +18,9 @@
       <mat-error *ngIf="loanForm.controls.requestedAmount.hasError('required')">
         Request Amount is required
       </mat-error>
+      <mat-error *ngIf="loanForm.controls.requestedAmount.hasError('serverError')">
+        {{loanForm.controls.requestedAmount.errors?.serverError}}
+      </mat-error>
     </mat-form-field>
   </p>
   <p>
@@ -23,6 +29,9 @@
       <input type="number" matInput formControlName="loanTerm" />
       <mat-error *ngIf="loanForm.controls.loanTerm.hasError('required')">
         Loan Term is required
+      </mat-error>
+      <mat-error *ngIf="loanForm.controls.loanTerm.hasError('serverError')">
+        {{loanForm.controls.loanTerm.errors?.serverError}}
       </mat-error>
     </mat-form-field>
   </p>
@@ -34,8 +43,8 @@
         <mat-option [value]="ChildrenAmountType.Single">Single</mat-option>
         <mat-option [value]="ChildrenAmountType.Multiple">Multiple</mat-option>
       </mat-select>
-      <mat-error *ngIf="loanForm.controls.children.hasError('required')">
-        Number of Children is required
+      <mat-error *ngIf="loanForm.controls.children.hasError('serverError')">
+        {{loanForm.controls.children.errors?.serverError}}
       </mat-error>
     </mat-form-field>
   </p>
@@ -51,11 +60,15 @@
           >Multiple Borrowers</mat-option
         >
       </mat-select>
-      <mat-error *ngIf="loanForm.controls.coapplicant.hasError('required')">
-        Number of Co-Applicants is required
+      <mat-error *ngIf="loanForm.controls.coapplicant.hasError('serverError')">
+        {{loanForm.controls.coapplicant.errors?.serverError}}
       </mat-error>
     </mat-form-field>
   </p>
-
+  <ng-container *ngIf="loanError?.general?.message">
+  <p>
+    {{loanError?.general?.message}}
+  </p>
+</ng-container>
   <button type="submit" mat-flat-button color="primary">Submit</button>
 </form>

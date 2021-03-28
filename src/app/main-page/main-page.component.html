@@ -5,9 +5,12 @@
     >
   </mat-card-header>
   <mat-card-content>
-    <app-loan-form (submitForm)="onSubmitForm($event)"></app-loan-form>
-    <ng-container *ngIf="loanResult$ | async as loanResult" >
-      <p>{{loanResult.interestRate}}</p>
-    </ng-container>
+    <app-loan-form [loanError]="loanError$ | async" (submitForm)="onSubmitForm($event)"></app-loan-form>
   </mat-card-content>
+    <ng-container *ngIf="loanResult$ | async as loanResult" >
+      <mat-card-content>
+      <p>Interest Rate: {{loanResult.interestRate}}</p>
+      <p>Loan Amount {{loanResult.loanAmount}}</p>
+      </mat-card-content>
+    </ng-container>
 </mat-card>
