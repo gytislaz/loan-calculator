@@ -2,9 +2,8 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { fetchLoan, fetchLoanSuccess, fetchLoanFail } from './loan.actions';
 import { mergeMap, map, catchError } from 'rxjs/operators';
-import { of, merge } from 'rxjs';
+import { of } from 'rxjs';
 import { LoanService } from '../services/loan.service';
-import { LoanError } from '../types';
 
 @Injectable()
 export class LoanEffects {

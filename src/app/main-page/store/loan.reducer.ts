@@ -1,4 +1,4 @@
-import { Action, State, createReducer, on, ActionReducer } from '@ngrx/store';
+import { Action, createReducer, on } from '@ngrx/store';
 import { CalculatedLoan, LoanError } from '../types';
 import { fetchLoan, fetchLoanFail, fetchLoanSuccess } from './loan.actions';
 

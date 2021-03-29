@@ -1,7 +1,24 @@
-import * as fromLoanForm from './loan.actions';
+import { fetchLoan, fetchLoanFail, fetchLoanSuccess } from './loan.actions';
 
-describe('loadLoanForms', () => {
-  it('should return an action', () => {
-    expect(fromLoanForm.loadLoanForms().type).toBe('[LoanForm] Load LoanForms');
+describe('fetchLoadActions', () => {
+  it('should create a fetchLoan action', () => {
+    expect(fetchLoan({ loanParameters: {} })).toStrictEqual({
+      type: '[Loan] Fetch Loan',
+      loanParameters: {},
+    });
+  });
+
+  it('should create a fetchLoanSuccess action', () => {
+    expect(fetchLoanSuccess({ loanResult: {} })).toStrictEqual({
+      type: '[Loan] Fetch Loan Success',
+      loanResult: {},
+    });
+  });
+
+  it('should create a fetchLoanFail action', () => {
+    expect(fetchLoanFail({ error: {} })).toStrictEqual({
+      type: '[Loan] Fetch Loan Fail',
+      error: {},
+    });
   });
 });

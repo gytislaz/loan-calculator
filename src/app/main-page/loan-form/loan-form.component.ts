@@ -36,7 +36,7 @@ export class LoanFormComponent implements OnChanges {
   readonly ChildrenAmountType: typeof ChildrenAmountType = ChildrenAmountType;
   readonly CoapplicantAmountType: typeof CoapplicantAmountType = CoapplicantAmountType;
 
-  ngOnChanges(): void {
+  public ngOnChanges(): void {
     this.loanError?.fields?.forEach((field) => {
       const formControl = this.loanForm.get(field.params);
       if (formControl) {

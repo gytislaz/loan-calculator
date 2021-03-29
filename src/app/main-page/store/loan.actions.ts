@@ -1,5 +1,4 @@
-import { createAction, props, ActionCreator } from '@ngrx/store';
-import { TypedAction } from '@ngrx/store/src/models';
+import { createAction, props } from '@ngrx/store';
 import { LoanParameters, CalculatedLoan, LoanError } from '../types';
 
 export enum FetchLoanActionTypes {

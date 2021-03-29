@@ -27,7 +27,7 @@ import { loanFeatureKey, loanReducer } from './main-page/store/loan.reducer';
     HttpClientModule,
     StoreModule.forRoot({}, {}),
     StoreModule.forFeature(loanFeatureKey, loanReducer),
-    EffectsModule.forRoot([LoanEffects]),
+    EffectsModule.forRoot([LoanEffects], ),
     StoreDevtoolsModule.instrument({ maxAge: 25 }),
     MatToolbarModule,
     MatCardModule,
